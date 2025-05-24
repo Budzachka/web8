@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адаптивна сторінка</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="hamburger-container">
+            <div class="hamburger" tabindex="0" aria-label="Меню" role="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <ul class="menu">
+                <li><a href="#"> Головна</a></li>
+                <li><a href="#"> Про нас</a></li>
+                <li><a href="#"> Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="main-section">
+            <h1>Головна</h1>
+            <p>Вітаємо на сторінці</p>
+        </section>
+        <section id="about" class="main-section" style="display:none">
+            <h1>Про нас</h1>
+            <p>Івано-Франківськ, Україна</p>
+        </section>
+        <section id="contacts" class="main-section" style="display:none">
+            <h1>Контакти</h1>
+            <p><a href="mailto:info@gmail.com">info@gmail.com</a></p>
+        </section>
+        <section class="carousel">
+            <div class="carousel-inner">
+                <div class="slide"><img src="https://place-hold.it/800x400/333/fff&text=Slide1" alt="Slide 1"></div>
+                <div class="slide"><img src="https://place-hold.it/800x400/666/fff&text=Slide2" alt="Slide 2"></div>
+                <div class="slide"><img src="https://place-hold.it/800x400/999/fff&text=Slide3" alt="Slide 3"></div>
+            </div>
+            <button class="carousel-button prev">❮</button>
+            <button class="carousel-button next">❯</button>
+            <div class="carousel-indicators"></div>
+        </section>
+
+        <section class="images-large">
+            <img src="https://place-hold.it/300x200/ff0000/fff&text=Large1" alt="Large Image 1">
+            <img src="https://place-hold.it/300x200/00ff00/fff&text=Large2" alt="Large Image 2">
+        </section>
+
+        <section class="images-medium">
+            <img src="https://place-hold.it/300x200/0000ff/fff&text=Medium1" alt="Medium Image 1">
+            <img src="https://place-hold.it/300x200/ffff00/fff&text=Medium2" alt="Medium Image 2">
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+/* Навігаційне меню */
+.nav-menu {
+    background: #333;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    position: relative;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+}
+
+.menu li {
+    margin: 0.5rem 0;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.menu li a:hover, .menu li a.active {
+    background: #444;
+    color: #ffd700;
+}
+
+.hamburger-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background: #333;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding-left: 1rem;
+}
+
+.hamburger {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1976d2;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transition: background 0.2s;
+    position: relative;
+}
+.hamburger:focus {
+    outline: 2px solid #1976d2;
+}
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin: 3px 0;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+.hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+body.menu-open .hamburger { display: initial !important; }
+
+/* Карусель */
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+}
+
+.indicator.active { background: #333; }
+
+/* Зображення для Large/Medium */
+.images-large, .images-medium {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.images-large img, .images-medium img {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Медійні запити */
+@media (max-width: 767px) {
+    .hamburger-container {
+        display: flex;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        background: #333;
+        padding: 1.5rem 1rem 1rem 1.5rem;
+        z-index: 1000;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .menu.active {
+        display: flex;
+    }
+    .images-large { display: none; }
+    .nav-menu {
+        position: static;
+    }
+}
+
+@media (min-width: 768px) {
+    .hamburger-container {
+        display: none;
+    }
+    .menu {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        border-radius: 0;
+    }
+    .images-medium { display: none; }
+}
+
+.main-section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 700px;
+    min-height: 200px;
+}
+
+.main-section h1 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 2rem;
+}
+
+.main-section p {
+    color: #444;
+    font-size: 1.1rem;
+}
+
+main {
+    padding-top: 60px;
+} 
