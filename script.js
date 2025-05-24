@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Гамбургер-меню
     const hamburger = document.querySelector('.hamburger');
     const menu = document.querySelector('.menu');
     hamburger.addEventListener('click', () => {
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('open', menu.classList.contains('active'));
     });
 
-    // SPA-перемикання секцій
     const navLinks = document.querySelectorAll('.menu li a');
     const sections = {
         home: document.getElementById('home'),
@@ -18,10 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            // Зняти активний клас
             navLinks.forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            // Показати потрібну секцію
+
             Object.keys(sections).forEach(key => {
                 if (link.textContent.trim().includes('Головна') && key === 'home')
                     sections[key].style.display = '';
@@ -32,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 else
                     sections[key].style.display = 'none';
             });
-            // Закрити меню на мобільному
+
             if (window.innerWidth < 768) {
                 menu.classList.remove('active');
                 document.body.classList.remove('menu-open');
@@ -40,10 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // За замовчуванням активна "Головна"
     navLinks[0].classList.add('active');
 
-    // Карусель
     const carousel = document.querySelector('.carousel-inner');
     const slides = document.querySelectorAll('.slide');
     const prevButton = document.querySelector('.prev');
@@ -52,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     const slideCount = slides.length;
 
-    // Створення індикаторів
     slides.forEach((_, index) => {
         const indicator = document.createElement('div');
         indicator.classList.add('indicator');
@@ -85,13 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(currentSlide);
     });
 
-    // Автоматична зміна слайдів
     setInterval(() => {
         currentSlide = (currentSlide + 1) % slideCount;
         goToSlide(currentSlide);
     }, 5000);
 
-    // Згортання меню при mouseleave на мобільному
     menu.addEventListener('mouseleave', () => {
         if (window.innerWidth < 768 && menu.classList.contains('active')) {
             menu.classList.remove('active');
@@ -100,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Закриття меню при кліку поза меню та гамбургером
     document.addEventListener('click', (e) => {
         if (window.innerWidth < 768 && menu.classList.contains('active')) {
             const isMenu = menu.contains(e.target);
